@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<VideoGames23.Models.Product>
+@{
+    Layout = null;
+}
+
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+ <title>Video Game Responses</title>
+ <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="text-center p-2">
+        <h2>Here is the list of games we have!</h2>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+            <tr><th>Title</th> <th>Description</th> <th>Price</th> <th>Catergory</th> <th>System</th></tr>
+            </thead>
+            <tbody>
+                @foreach(VideoGames23.Models.Product v in Model)
+                {
+                    <tr>
+                        <td>@v.ProductName</td>
+                        <td>@v.Description</td>
+                        <td>@v.Price</td>
+                        <td>@v.Category</td>
+                        <td>@v.System</td>
+                        <td>
+                         <a asp-action="VideoGameEdit" asp-route-id="">Edit</a> |
+                        <a asp-action="VideoGameDetails" asp-route-id="">Details</a> |
+                        <a asp-action="VideoGameDelete" asp-route-id="">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>
